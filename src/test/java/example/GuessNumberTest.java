@@ -148,5 +148,21 @@ public class GuessNumberTest {
         assertTrue(result);
     }
 
+    @Test
+    void should_return_false_when_generate_answer_given_answer_1226() {
+        //given
+        int[] answer={1,2,2,6};
+        AnswerGenerator answerGenerator= Mockito.mock(AnswerGenerator.class);
+        when(answerGenerator.generate()).thenReturn(answer);
+        GuessNumber guessNumber=new GuessNumber(answerGenerator);
+
+
+        //when
+        boolean result=guessNumber.isLegalList(guessNumber.getAnswer());
+
+        //then
+        assertFalse(result);
+    }
+
 
 }
