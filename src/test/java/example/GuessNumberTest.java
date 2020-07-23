@@ -3,6 +3,9 @@ package example;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.when;
 
@@ -178,6 +181,24 @@ public class GuessNumberTest {
 
         //then
         assertFalse(result);
+    }
+
+    @Test
+    void should_return_true_when_playing_game_given_answer_1234_and_input_1234() {
+        //given
+        int[] answer={1,2,3,4};
+        AnswerGenerator answerGenerator= Mockito.mock(AnswerGenerator.class);
+        when(answerGenerator.generate()).thenReturn(answer);
+        GuessNumber guessNumber=new GuessNumber(answerGenerator);
+        int count=1;
+        int[] inputs={1,2,3,4};
+
+        //when
+
+        String result=guessNumber.play(inputs,count);;
+
+        //then
+        assertEquals("1 2 3 4    4A0B     win, all correct\n",result);
     }
 
 
