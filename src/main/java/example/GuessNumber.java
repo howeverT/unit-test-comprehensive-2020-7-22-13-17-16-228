@@ -45,11 +45,11 @@ public class GuessNumber implements AnswerGenerator{
         return calEqualNum(inputGuess,answer)-calNumOfA(inputGuess,answer);
     }
 
-    public boolean isLegalList(int[] inputGuess){
+    public boolean isLegalList(int[] legalList){
         HashMap<Integer,Integer> inputMap=new HashMap<>();
-        for (int guess : inputGuess) {
-            if (guess>=0&&guess<=9)
-                inputMap.put(guess,1);
+        for (int legal : legalList) {
+            if (legal>=0&&legal<=9)
+                inputMap.put(legal,1);
             else
                 return false;
         }
