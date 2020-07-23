@@ -46,7 +46,11 @@ public class GuessNumber{
     }
 
     public boolean isLegalList(int[] inputGuess){
-        return false;
+        HashMap<Integer,Integer> inputMap=new HashMap<>();
+        for (int guess : inputGuess) {
+            inputMap.put(guess,1);
+        }
+        return inputMap.size() == 4;
     }
 
 }
