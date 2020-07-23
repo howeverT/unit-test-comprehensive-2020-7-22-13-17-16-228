@@ -72,6 +72,8 @@ public class GuessNumber implements AnswerGenerator{
         for (int i : input) {
             head+=i+" ";
         }
+        if (!isLegalList(input))
+            return head+"   Wrong Input,Input again\n";
         String msg=guess(input);
         head+="   "+msg+"     ";
         if (msg.equals("4A0B"))
