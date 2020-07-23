@@ -184,7 +184,7 @@ public class GuessNumberTest {
     }
 
     @Test
-    void should_return_true_when_playing_game_given_answer_1234_and_input_1234() {
+    void should_return_correct_when_playing_game_given_answer_1234_and_input_1234() {
         //given
         int[] answer={1,2,3,4};
         AnswerGenerator answerGenerator= Mockito.mock(AnswerGenerator.class);
@@ -199,6 +199,24 @@ public class GuessNumberTest {
 
         //then
         assertEquals("1 2 3 4    4A0B     win, all correct\n",result);
+    }
+
+    @Test
+    void should_return_wrong_when_playing_game_given_answer_1234_and_input_5678() {
+        //given
+        int[] answer={1,2,3,4};
+        AnswerGenerator answerGenerator= Mockito.mock(AnswerGenerator.class);
+        when(answerGenerator.generate()).thenReturn(answer);
+        GuessNumber guessNumber=new GuessNumber(answerGenerator);
+        int count=1;
+        int[] inputs={5,6,7,8};
+
+        //when
+
+        String result=guessNumber.play(inputs,count);;
+
+        //then
+        assertEquals("5 6 7 8    0A0B     all wrong\n",result);
     }
 
 
