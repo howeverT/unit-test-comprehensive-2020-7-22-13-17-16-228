@@ -2,7 +2,7 @@ package example;
 
 import java.util.HashMap;
 
-public class GuessNumber{
+public class GuessNumber implements AnswerGenerator{
 
     private int[] answer;
 
@@ -57,4 +57,8 @@ public class GuessNumber{
     }
 
 
+    @Override
+    public int[] generate() {
+        return new int[0];
+    }
 }

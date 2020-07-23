@@ -135,4 +135,18 @@ public class GuessNumberTest {
         assertFalse(result);
     }
 
+    @Test
+    void should_return_true_when_generate_answer_given_answer_random() {
+        //given
+        GuessNumber guessNumber=new GuessNumber();
+
+
+        //when
+        boolean result=guessNumber.isLegalList(guessNumber.generate());
+
+        //then
+        assertTrue(result);
+    }
+
+
 }
