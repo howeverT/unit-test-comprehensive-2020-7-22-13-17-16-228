@@ -3,8 +3,7 @@ package example;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.when;
 
 public class GuessNumberTest {
@@ -92,6 +91,20 @@ public class GuessNumberTest {
 
         //then
         assertTrue(result);
+    }
+
+    @Test
+    void should_return_false_when_isLegal_given_input_guess_12() {
+        //given
+        int[] inputGuess={1,2};
+        GuessNumber guessNumber=new GuessNumber();
+
+
+        //when
+        boolean result=guessNumber.isLegalList(inputGuess);
+
+        //then
+        assertFalse(result);
     }
 
 }
