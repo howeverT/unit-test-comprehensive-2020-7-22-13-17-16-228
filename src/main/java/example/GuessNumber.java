@@ -5,6 +5,10 @@ import java.util.HashMap;
 public class GuessNumber{
 
     private int[] answer;
+
+    public GuessNumber() {
+    }
+
     public GuessNumber(AnswerGenerator answerGenerator) {
         this.answer=answerGenerator.generate();
     }
@@ -27,8 +31,8 @@ public class GuessNumber{
     public int calEqualNum(int[] inputGuess, int[] answer){
         int result=0;
         HashMap<Integer,String> answerMap=new HashMap<>();
-        for (int index = 0; index < answer.length; index++) {
-            answerMap.put(answer[index],"exist");
+        for (int i : answer) {
+            answerMap.put(i, "exist");
         }
         for (int guess : inputGuess) {
             if ("exist".equals(answerMap.get(guess)))
@@ -39,6 +43,10 @@ public class GuessNumber{
 
     public int calNumOfB(int[] inputGuess, int[] answer){
         return calEqualNum(inputGuess,answer)-calNumOfA(inputGuess,answer);
+    }
+
+    public boolean isLegalList(int[] inputGuess){
+        return false;
     }
 
 }
