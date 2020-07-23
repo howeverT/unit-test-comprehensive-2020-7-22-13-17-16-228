@@ -121,4 +121,18 @@ public class GuessNumberTest {
         assertFalse(result);
     }
 
+    @Test
+    void should_return_false_when_isLegal_given_input_guess_11243() {
+        //given
+        int[] inputGuess={11,2,4,3};
+        GuessNumber guessNumber=new GuessNumber();
+
+
+        //when
+        boolean result=guessNumber.isLegalList(inputGuess);
+
+        //then
+        assertFalse(result);
+    }
+
 }
