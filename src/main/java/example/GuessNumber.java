@@ -1,7 +1,13 @@
 package example;
 
-public class GuessNumber {
-    public String guess(int[] inputGuess, int[] answer) {
+public class GuessNumber{
+
+    private int[] answer;
+    public GuessNumber(AnswerGenerator answerGenerator) {
+        this.answer=answerGenerator.generate();
+    }
+
+    public String guess(int[] inputGuess) {
         if (isCurrent(inputGuess,answer))
             return "4A0B";
 
@@ -14,4 +20,5 @@ public class GuessNumber {
         }
         return true;
     }
+
 }
