@@ -2,7 +2,7 @@ package example;
 
 import java.util.HashMap;
 
-public class GuessNumber implements AnswerGenerator{
+public class GuessNumber implements AnswerGenerator {
 
     private int[] answer;
 
@@ -15,30 +15,31 @@ public class GuessNumber implements AnswerGenerator{
     }
 
     public GuessNumber() {
+        this.answer = generate();
     }
 
     public GuessNumber(AnswerGenerator answerGenerator) {
-        this.answer=answerGenerator.generate();
+        this.answer = answerGenerator.generate();
     }
 
     public String guess(int[] inputGuess) {
 
-        return calNumOfA(inputGuess,answer)+"A"+calNumOfB(inputGuess,answer)+"B";
+        return calNumOfA(inputGuess, answer) + "A" + calNumOfB(inputGuess, answer) + "B";
     }
 
 
-    public int calNumOfA(int[] inputGuess, int[] answer){
-        int result=0;
+    public int calNumOfA(int[] inputGuess, int[] answer) {
+        int result = 0;
         for (int index = 0; index < inputGuess.length; index++) {
-            if (inputGuess[index]==answer[index])
+            if (inputGuess[index] == answer[index])
                 result++;
         }
         return result;
     }
 
-    public int calEqualNum(int[] inputGuess, int[] answer){
-        int result=0;
-        HashMap<Integer,String> answerMap=new HashMap<>();
+    public int calEqualNum(int[] inputGuess, int[] answer) {
+        int result = 0;
+        HashMap<Integer, String> answerMap = new HashMap<>();
         for (int i : answer) {
             answerMap.put(i, "exist");
         }
@@ -49,15 +50,15 @@ public class GuessNumber implements AnswerGenerator{
         return result;
     }
 
-    public int calNumOfB(int[] inputGuess, int[] answer){
-        return calEqualNum(inputGuess,answer)-calNumOfA(inputGuess,answer);
+    public int calNumOfB(int[] inputGuess, int[] answer) {
+        return calEqualNum(inputGuess, answer) - calNumOfA(inputGuess, answer);
     }
 
-    public boolean isLegalList(int[] legalList){
-        HashMap<Integer,Integer> inputMap=new HashMap<>();
+    public boolean isLegalList(int[] legalList) {
+        HashMap<Integer, Integer> inputMap = new HashMap<>();
         for (int legal : legalList) {
-            if (legal>=0&&legal<=9)
-                inputMap.put(legal,1);
+            if (legal >= 0 && legal <= 9)
+                inputMap.put(legal, 1);
             else
                 return false;
         }
@@ -65,30 +66,30 @@ public class GuessNumber implements AnswerGenerator{
     }
 
 
-    public String play(int[] input,int times){
-        if (times>6)
+    public String play(int[] input, int times) {
+        if (times > 6)
             return "you lose\n";
-        String head= "";
+        String head = "";
         for (int i : input) {
-            head+=i+" ";
+            head += i + " ";
         }
         if (!isLegalList(input))
-            return head+"   Wrong Input,Input again\n";
-        String msg=guess(input);
-        head+="   "+msg+"     ";
+            return head + "   Wrong Input,Input again\n";
+        String msg = guess(input);
+        head += "   " + msg + "     ";
         if (msg.equals("4A0B"))
-            return head+"win, all correct\n";
+            return head + "win, all correct\n";
         if (msg.equals("0A0B"))
-            return head+"all wrong\n";
+            return head + "all wrong\n";
         return "";
     }
 
 
-    public HashMap<Integer,Integer> answerLocation(){
-        HashMap<Integer,Integer> map=new HashMap<>();
-        int count=1;
+    public HashMap<Integer, Integer> answerLocation() {
+        HashMap<Integer, Integer> map = new HashMap<>();
+        int count = 1;
         for (int i : answer) {
-            map.put(i,count++);
+            map.put(i, count++);
         }
         return map;
     }
@@ -97,16 +98,16 @@ public class GuessNumber implements AnswerGenerator{
     public int[] generate() {
         int[] result = new int[4];
         int count = 0;
-        while(count < 4) {
+        while (count < 4) {
             int num = (int) (Math.random() * 9);
             boolean isInResult = true;
             for (int index = 0; index < 4; index++) {
-                if(num == result[index]){
+                if (num == result[index]) {
                     isInResult = false;
                     break;
                 }
             }
-            if(isInResult){
+            if (isInResult) {
                 result[count] = num;
                 count++;
             }

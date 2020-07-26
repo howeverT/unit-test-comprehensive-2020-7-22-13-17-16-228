@@ -195,7 +195,7 @@ public class GuessNumberTest {
 
         //when
 
-        String result=guessNumber.play(inputs,count);;
+        String result=guessNumber.play(inputs,count);
 
         //then
         assertEquals("1 2 3 4    4A0B     win, all correct\n",result);
@@ -213,7 +213,7 @@ public class GuessNumberTest {
 
         //when
 
-        String result=guessNumber.play(inputs,count);;
+        String result=guessNumber.play(inputs,count);
 
         //then
         assertEquals("5 6 7 8    0A0B     all wrong\n",result);
@@ -231,7 +231,7 @@ public class GuessNumberTest {
 
         //when
 
-        String result=guessNumber.play(inputs,count);;
+        String result=guessNumber.play(inputs,count);
 
         //then
         assertEquals("1 1 2 3    Wrong Input,Input again\n",result);
