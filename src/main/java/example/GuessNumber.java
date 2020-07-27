@@ -40,16 +40,16 @@ public class GuessNumber {
     }
 
     public int calEqualNum(int[] inputGuess, int[] answer) {
-        int result = 0;
+        int countOfEqual = 0;
         HashMap<Integer, String> answerMap = new HashMap<>();
         for (int i : answer) {
             answerMap.put(i, "exist");
         }
         for (int guess : inputGuess) {
             if ("exist".equals(answerMap.get(guess)))
-                result++;
+                countOfEqual++;
         }
-        return result;
+        return countOfEqual;
     }
 
     public int calNumOfB(int[] inputGuess, int[] answer) {
