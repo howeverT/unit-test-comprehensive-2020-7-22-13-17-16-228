@@ -5,28 +5,27 @@ import java.util.Scanner;
 public class Application {
     public static void main(String[] args) {
         int times = 1;
-        String result = ConstantHouse.FAIL_MESSAGE;
+        String message;
+        GuessNumber guessNumber = new GuessNumber();
         while (times <= 6) {
             System.out.println("please input 4 number:");
             Scanner in = new Scanner(System.in);
-            GuessNumber guessNumber = new GuessNumber();
+            Process process = new Process();
             int[] inputGuess = new int[4];
             for (int index = 0; index < inputGuess.length; index++) {
                 inputGuess[index] = in.nextInt();
             }
-            if (!guessNumber.isLegalList(inputGuess)){
-                System.out.println(ConstantHouse.WRONG_MESSAGE);
-            }
-            else {
-                if (guessNumber.guess(inputGuess).equals("4A0B")) {
-                    result = ConstantHouse.SUCCESS_MESSAGE;
-                } else {
-                    System.out.println(guessNumber.guess(inputGuess));
-                }
+            message = process.play(inputGuess, times, guessNumber);
+            if (message.equals(ConstantHouse.SUCCESS_MESSAGE)) {
+                System.out.println(message);
+            } else if (message.equals(ConstantHouse.WRONG_MESSAGE)) {
+                System.out.println(message);
+            } else {
+                System.out.println(message);
                 times++;
             }
         }
-        System.out.println(result);
+
 
 
     }
