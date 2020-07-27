@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class Application {
     public static void main(String[] args) {
         int times = 1;
-        String result = "You lose";
+        String result = ConstantHouse.FAIL_MESSAGE;
         while (times <= 6) {
             System.out.println("please input 4 number:");
             Scanner in = new Scanner(System.in);
@@ -15,11 +15,11 @@ public class Application {
                 inputGuess[index] = in.nextInt();
             }
             if (!guessNumber.isLegalList(inputGuess)){
-                System.out.println("Wrong Input,Input again");
+                System.out.println(ConstantHouse.WRONG_MESSAGE);
             }
             else {
                 if (guessNumber.guess(inputGuess).equals("4A0B")) {
-                    result = "You win";
+                    result = ConstantHouse.SUCCESS_MESSAGE;
                 } else {
                     System.out.println(guessNumber.guess(inputGuess));
                 }

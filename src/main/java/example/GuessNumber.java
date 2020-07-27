@@ -41,10 +41,10 @@ public class GuessNumber {
         int countOfEqual = 0;
         HashMap<Integer, String> answerMap = new HashMap<>();
         for (int i : answer) {
-            answerMap.put(i, "exist");
+            answerMap.put(i, ConstantHouse.EXIST_MESSAGE);
         }
         for (int guess : inputGuess) {
-            if ("exist".equals(answerMap.get(guess))) {
+            if (ConstantHouse.EXIST_MESSAGE.equals(answerMap.get(guess))) {
                 countOfEqual++;
             }
         }
