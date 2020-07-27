@@ -30,8 +30,9 @@ public class GuessNumber {
     public int calNumOfA(int[] inputGuess, int[] answer) {
         int countOfA = 0;
         for (int index = 0; index < inputGuess.length; index++) {
-            if (inputGuess[index] == answer[index])
+            if (inputGuess[index] == answer[index]) {
                 countOfA++;
+            }
         }
         return countOfA;
     }
@@ -43,8 +44,9 @@ public class GuessNumber {
             answerMap.put(i, "exist");
         }
         for (int guess : inputGuess) {
-            if ("exist".equals(answerMap.get(guess)))
+            if ("exist".equals(answerMap.get(guess))) {
                 countOfEqual++;
+            }
         }
         return countOfEqual;
     }
@@ -56,10 +58,11 @@ public class GuessNumber {
     public boolean isLegalList(int[] legalList) {
         HashMap<Integer, Integer> inputMap = new HashMap<>();
         for (int legal : legalList) {
-            if (legal >= 0 && legal <= 9)
+            if (legal >= 0 && legal <= 9) {
                 inputMap.put(legal, 1);
-            else
+            } else {
                 return false;
+            }
         }
         return inputMap.size() == 4;
     }

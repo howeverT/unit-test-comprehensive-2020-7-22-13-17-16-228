@@ -18,10 +18,11 @@ public class Application {
                 System.out.println("Wrong Input,Input again");
             }
             else {
-                if (guessNumber.guess(inputGuess).equals("4A0B"))
+                if (guessNumber.guess(inputGuess).equals("4A0B")) {
                     result = "You win";
-                else
+                } else {
                     System.out.println(guessNumber.guess(inputGuess));
+                }
                 times++;
             }
         }
