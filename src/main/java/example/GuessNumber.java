@@ -12,9 +12,6 @@ public class GuessNumber {
         return answer;
     }
 
-    public void setAnswer(int[] answer) {
-        this.answer = answer;
-    }
 
     public GuessNumber() {
         this.answer = answerGenerate.generate();
