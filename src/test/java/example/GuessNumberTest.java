@@ -182,10 +182,4 @@ public class GuessNumberTest {
         assertFalse(result);
     }
 
-
-
-
-
-
-
 }

@@ -66,25 +66,6 @@ public class GuessNumber implements AnswerGenerator {
     }
 
 
-    public String play(int[] input, int times) {
-        if (times > 6)
-            return "you lose\n";
-        String head = "";
-        for (int i : input) {
-            head += i + " ";
-        }
-        if (!isLegalList(input))
-            return head + "   Wrong Input,Input again\n";
-        String msg = guess(input);
-        head += "   " + msg + "     ";
-        if (msg.equals("4A0B"))
-            return head + "win, all correct\n";
-        if (msg.equals("0A0B"))
-            return head + "all wrong\n";
-        return "";
-    }
-
-
     public HashMap<Integer, Integer> answerLocation() {
         HashMap<Integer, Integer> map = new HashMap<>();
         int count = 1;
