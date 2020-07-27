@@ -23,7 +23,7 @@ public class GuessNumber {
 
     public String guess(int[] inputGuess) {
 
-        return calNumOfA(inputGuess, answer) + "A" + calNumOfB(inputGuess, answer) + "B";
+        return String.format("%dA%dB", calNumOfA(inputGuess, answer), calNumOfB(inputGuess, answer));
     }
 
 
