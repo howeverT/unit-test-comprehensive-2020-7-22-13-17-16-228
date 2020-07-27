@@ -178,4 +178,21 @@ public class GuessNumberTest {
         assertFalse(result);
     }
 
+    @Test
+    void should_return_wrong_input_when_play_given_inputGuess() {
+        //given
+        int[] answer = {1, 2, 3, 4};
+        AnswerGenerator answerGenerator = Mockito.mock(AnswerGenerator.class);
+        when(answerGenerator.generate()).thenReturn(answer);
+        GuessNumber guessNumber = new GuessNumber(answerGenerator);
+        Process process = new Process();
+        int[] inputGuess = {1, 2, 2, 6};
+
+
+        //when
+        String result = process.play(inputGuess, 1, guessNumber);
+
+        //then
+        assertEquals("Wrong Input,Input again", result);
+    }
 }
