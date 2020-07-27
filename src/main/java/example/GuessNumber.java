@@ -31,12 +31,12 @@ public class GuessNumber {
 
 
     public int calNumOfA(int[] inputGuess, int[] answer) {
-        int result = 0;
+        int countOfA = 0;
         for (int index = 0; index < inputGuess.length; index++) {
             if (inputGuess[index] == answer[index])
-                result++;
+                countOfA++;
         }
-        return result;
+        return countOfA;
     }
 
     public int calEqualNum(int[] inputGuess, int[] answer) {
