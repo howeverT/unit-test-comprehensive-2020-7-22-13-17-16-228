@@ -2,9 +2,11 @@ package example;
 
 import java.util.HashMap;
 
-public class GuessNumber implements AnswerGenerator {
+public class GuessNumber {
 
     private int[] answer;
+
+    private AnswerGenerate answerGenerate =new AnswerGenerate();
 
     public int[] getAnswer() {
         return answer;
@@ -15,7 +17,7 @@ public class GuessNumber implements AnswerGenerator {
     }
 
     public GuessNumber() {
-        this.answer = generate();
+        this.answer = answerGenerate.generate();
     }
 
     public GuessNumber(AnswerGenerator answerGenerator) {
@@ -63,37 +65,6 @@ public class GuessNumber implements AnswerGenerator {
                 return false;
         }
         return inputMap.size() == 4;
-    }
-
-
-    public HashMap<Integer, Integer> answerLocation() {
-        HashMap<Integer, Integer> map = new HashMap<>();
-        int count = 1;
-        for (int i : answer) {
-            map.put(i, count++);
-        }
-        return map;
-    }
-
-    @Override
-    public int[] generate() {
-        int[] result = new int[4];
-        int count = 0;
-        while (count < 4) {
-            int num = (int) (Math.random() * 9);
-            boolean isInResult = true;
-            for (int index = 0; index < 4; index++) {
-                if (num == result[index]) {
-                    isInResult = false;
-                    break;
-                }
-            }
-            if (isInResult) {
-                result[count] = num;
-                count++;
-            }
-        }
-        return result;
     }
 
 
