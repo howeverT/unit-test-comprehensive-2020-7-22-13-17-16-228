@@ -1,6 +1,6 @@
 package example;
 
-public class ConstantHouse {
+public class Constants {
     public static final String WRONG_MESSAGE = "Wrong Input,Input again";
 
     public static final String SUCCESS_MESSAGE = "You win";

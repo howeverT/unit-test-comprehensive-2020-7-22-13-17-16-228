@@ -2,6 +2,8 @@ package example;
 
 import java.util.HashMap;
 
+import static example.Constants.*;
+
 public class GuessNumber {
 
     private int[] answer;
@@ -27,7 +29,7 @@ public class GuessNumber {
     }
 
 
-    public int calNumOfA(int[] inputGuess, int[] answer) {
+    public int calNumOfA(int[] inputGuess, int[] answer) {//TODO
         int countOfA = 0;
         for (int index = 0; index < inputGuess.length; index++) {
             if (inputGuess[index] == answer[index]) {
@@ -40,18 +42,18 @@ public class GuessNumber {
     public int calEqualNum(int[] inputGuess, int[] answer) {
         int countOfEqual = 0;
         HashMap<Integer, String> answerMap = new HashMap<>();
-        for (int i : answer) {
-            answerMap.put(i, ConstantHouse.EXIST_MESSAGE);
+        for (int i : answer) {//TODO
+            answerMap.put(i, EXIST_MESSAGE);
         }
         for (int guess : inputGuess) {
-            if (ConstantHouse.EXIST_MESSAGE.equals(answerMap.get(guess))) {
+            if (EXIST_MESSAGE.equals(answerMap.get(guess))) {
                 countOfEqual++;
             }
         }
         return countOfEqual;
     }
 
-    public int calNumOfB(int[] inputGuess, int[] answer) {
+    public int calNumOfB(int[] inputGuess, int[] answer) {//TODO
         return calEqualNum(inputGuess, answer) - calNumOfA(inputGuess, answer);
     }
 

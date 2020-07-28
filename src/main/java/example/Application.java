@@ -3,7 +3,7 @@ package example;
 import java.util.Scanner;
 
 public class Application {
-    public static void main(String[] args) {
+    public static void main(String[] args) {//TODO
         int times = 1;
         String message;
         GuessNumber guessNumber = new GuessNumber();
@@ -16,9 +16,9 @@ public class Application {
                 inputGuess[index] = in.nextInt();
             }
             message = process.play(inputGuess, times, guessNumber);
-            if (message.equals(ConstantHouse.SUCCESS_MESSAGE)) {
+            if (message.equals(Constants.SUCCESS_MESSAGE)) {
                 System.out.println(message);
-            } else if (message.equals(ConstantHouse.WRONG_MESSAGE)) {
+            } else if (message.equals(Constants.WRONG_MESSAGE)) {
                 System.out.println(message);
             } else {
                 System.out.println(message);
