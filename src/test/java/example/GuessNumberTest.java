@@ -248,4 +248,22 @@ public class GuessNumberTest {
         //then
         assertEquals(7, result);
     }
+
+    @Test
+    void should_return_1_when_game_process_given_inputGuess_illegal() {
+        //given
+        int[] answer = {1, 2, 3, 4};
+        AnswerGenerator answerGenerator = Mockito.mock(AnswerGenerator.class);
+        when(answerGenerator.generate()).thenReturn(answer);
+        GuessNumber guessNumber = new GuessNumber(answerGenerator);
+        Process process = new Process();
+        int[] inputGuess = {2, 2, 3, 4};
+
+        //when
+        int result = process.gameProcess(inputGuess, 1, guessNumber);
+
+        //then
+        assertEquals(1, result);
+    }
+
 }
