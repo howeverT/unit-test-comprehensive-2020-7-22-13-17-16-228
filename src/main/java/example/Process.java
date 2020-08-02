@@ -19,10 +19,10 @@ public class Process {
 
     public int gameProcess(int[] inputGuess, int times, GuessNumber guessNumber) {
         String message = play(inputGuess, times, guessNumber);
-        if (message.equals(ConstantHouse.SUCCESS_MESSAGE)) {
+        if (message.equals(Constants.SUCCESS_MESSAGE)) {
             System.out.println(message);
             return 7;
-        } else if (message.equals(ConstantHouse.WRONG_MESSAGE)) {
+        } else if (message.equals(Constants.WRONG_MESSAGE)) {
             System.out.println(message);
         } else {
             System.out.println(message);
