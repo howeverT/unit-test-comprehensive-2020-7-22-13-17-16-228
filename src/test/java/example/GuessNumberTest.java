@@ -1,5 +1,6 @@
 package example;
 
+
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 
@@ -212,5 +213,22 @@ public class GuessNumberTest {
 
         //then
         assertEquals("You win", result);
+    }
+
+    @Test
+    void should_return_2_when_game_process_given_inputGuess() {
+        //given
+        int[] answer = {1, 2, 3, 4};
+        AnswerGenerator answerGenerator = Mockito.mock(AnswerGenerator.class);
+        when(answerGenerator.generate()).thenReturn(answer);
+        GuessNumber guessNumber = new GuessNumber(answerGenerator);
+        Process process = new Process();
+        int[] inputGuess = {5, 2, 3, 4};
+
+        //when
+        int result = process.gameProcess(inputGuess, 1, guessNumber);
+
+        //then
+        assertEquals(2, result);
     }
 }

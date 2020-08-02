@@ -16,4 +16,9 @@ public class Process {
         }
         return guessOutput;
     }
+
+    public int gameProcess(int[] inputGuess, int times, GuessNumber guessNumber) {
+
+        return 0;
+    }
 }
