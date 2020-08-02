@@ -18,7 +18,16 @@ public class Process {
     }
 
     public int gameProcess(int[] inputGuess, int times, GuessNumber guessNumber) {
-
-        return 0;
+        String message = play(inputGuess, times, guessNumber);
+        if (message.equals(ConstantHouse.SUCCESS_MESSAGE)) {
+            System.out.println(message);
+            return 7;
+        } else if (message.equals(ConstantHouse.WRONG_MESSAGE)) {
+            System.out.println(message);
+        } else {
+            System.out.println(message);
+            times++;
+        }
+        return times;
     }
 }
