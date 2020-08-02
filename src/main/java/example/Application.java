@@ -15,15 +15,7 @@ public class Application {
             for (int index = 0; index < inputGuess.length; index++) {
                 inputGuess[index] = in.nextInt();
             }
-            message = process.play(inputGuess, times, guessNumber);
-            if (message.equals(ConstantHouse.SUCCESS_MESSAGE)) {
-                System.out.println(message);
-            } else if (message.equals(ConstantHouse.WRONG_MESSAGE)) {
-                System.out.println(message);
-            } else {
-                System.out.println(message);
-                times++;
-            }
+            times= process.gameProcess(inputGuess, times, guessNumber);
         }
 
 
