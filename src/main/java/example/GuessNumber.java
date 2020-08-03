@@ -25,11 +25,11 @@ public class GuessNumber {
 
     public String guess(int[] inputGuess) {
 
-        return String.format("%dA%dB", calNumOfA(inputGuess, answer), calNumOfB(inputGuess, answer));
+        return String.format("%dA%dB", calNumOfCorrectNumber(inputGuess, answer), calNumOfB(inputGuess, answer));
     }
 
 
-    public int calNumOfA(int[] inputGuess, int[] answer) {//TODO
+    public int calNumOfCorrectNumber(int[] inputGuess, int[] answer) {//TODO
         int countOfA = 0;
         for (int index = 0; index < inputGuess.length; index++) {
             if (inputGuess[index] == answer[index]) {
@@ -54,7 +54,7 @@ public class GuessNumber {
     }
 
     public int calNumOfB(int[] inputGuess, int[] answer) {//TODO
-        return calEqualNum(inputGuess, answer) - calNumOfA(inputGuess, answer);
+        return calEqualNum(inputGuess, answer) - calNumOfCorrectNumber(inputGuess, answer);
     }
 
     public boolean isLegalList(int[] legalList) {
