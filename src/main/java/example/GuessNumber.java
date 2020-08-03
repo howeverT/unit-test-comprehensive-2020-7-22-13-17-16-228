@@ -25,7 +25,7 @@ public class GuessNumber {
 
     public String guess(int[] inputGuess) {
 
-        return String.format("%dA%dB", calNumOfCorrectNumber(inputGuess, answer), calNumOfB(inputGuess, answer));
+        return String.format("%dA%dB", calNumOfCorrectNumber(inputGuess, answer), calNumOfWrongPositionNumber(inputGuess, answer));
     }
 
 
@@ -53,7 +53,7 @@ public class GuessNumber {
         return countOfEqual;
     }
 
-    public int calNumOfB(int[] inputGuess, int[] answer) {//TODO
+    public int calNumOfWrongPositionNumber(int[] inputGuess, int[] answer) {//TODO
         return calEqualNum(inputGuess, answer) - calNumOfCorrectNumber(inputGuess, answer);
     }
 
